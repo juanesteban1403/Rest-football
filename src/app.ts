@@ -1,16 +1,18 @@
 import express, {Application} from 'express';
 import morgan from 'morgan';
+import routes from './routes/route'
 
 
+//Application
 const app: Application = express ();
 
-import routes from './routes/route'
+
 
 //Settings
 app.set('port',3000)
 
-//middleware
-app.use(morgan('dev'))
+//middleware debug
+//app.use(morgan('dev'))
 
 //routes
 

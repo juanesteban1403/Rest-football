@@ -5,8 +5,9 @@ const url:string = 'https://ws.footballpool.dataaccess.eu/info.wso?WSDL';
 
 
 const teamCoachName  = (request:Request, response:Response) =>{
+    /* Get All teams coaches Name and Team where he belong */
+
     try{
-        console.log("estoyaqui")
         soap.createClient(url, function(err:any, client:any){
             if(err){ response.json(500).json(err); console.log(err);}
             if(client){

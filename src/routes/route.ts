@@ -1,9 +1,14 @@
 import { Router } from "express";
-
-const router:Router = Router();
-
 import teamCoachName from '../controller/teamcontroller';
 
+
+//Router
+const router:Router = Router();
+
+
+//Routes 
 router.get('/get-team-coach-name', teamCoachName);
+
+
 
 export default router;
