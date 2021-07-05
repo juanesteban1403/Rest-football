@@ -14,5 +14,8 @@ app.use(morgan('dev'))
 
 //routes
 
-app.use(routes)
+app.use('/api/v1.0',routes)
+
+
+
 export default app;
