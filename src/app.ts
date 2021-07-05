@@ -1,21 +1,48 @@
 import express, {Application} from 'express';
 import morgan from 'morgan';
-
-
-const app: Application = express ();
-
+import soapClient  from './soapconnection/clientconnection';
 import routes from './routes/route'
 
-//Settings
-app.set('port',3000)
-
-//middleware
-app.use(morgan('dev'))
-
-//routes
-
-app.use('/api/v1.0',routes)
+class Server {
+    app: any;
+    port: number;
 
 
+    constructor() {
+        this.app  = express();
+        this.port = 3000;
 
-export default app;
+
+
+
+        // Middlewares
+        this.middlewares();
+
+        // routes
+        this.routes();
+    }
+
+    soapConnect() {
+        soapClient();
+    }
+
+    middlewares() {
+
+        // Devmiddleware
+        this.app.use(morgan('dev'));
+    }
+
+    routes() {
+        this.app.use('/api/v1.0',routes);
+    }
+
+    listen() {
+        this.app.listen( this.port, () => {
+           
+        });
+       
+    }
+
+}
+
+module.exports = Server;
