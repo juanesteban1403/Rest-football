@@ -12,7 +12,7 @@ const app: Application = express ();
 app.set('port',3000)
 
 //middleware debug
-//app.use(morgan('dev'))
+app.use(morgan('dev'))
 
 //routes
 
